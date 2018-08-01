@@ -1,9 +1,10 @@
 <!--
 01- Javascript Drum Kit
-Version 0.0.0
+Version 1.0.0
 Date Started: 07-30-18
-Last Updated: 07-30-18
+Last Updated: 07-31-18
 -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,6 +55,8 @@ Last Updated: 07-30-18
     </div>
   </div>
 
+<!-- Keys on a keyboard have metadata values associated with them, called KeyCode in the console (e.g 74 is 'J') -->
+
   <audio data-key="65" src="sounds/clap.wav"></audio>
   <audio data-key="83" src="sounds/hihat.wav"></audio>
   <audio data-key="68" src="sounds/kick.wav"></audio>
@@ -65,6 +68,31 @@ Last Updated: 07-30-18
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+
+function playSound(e){ 
+//console.log(e);
+const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`) //data-key attribute expects double quotes when you call a value to it (it's probably expecting a string not like specific numbers) 
+//console.log(audio);
+const key = document.querySelector(`.key[data-key="${e.keyCode}"]`) 
+if(!audio) return; // exclamation point (!) is logical not
+audio.currentTime=0; 
+audio.play();
+//console.log(key);
+
+key.classList.add('playing'); 
+//console.log(key.classList);
+//console.log(document.querySelector(`div[data-key="65"]`));
+}
+
+function removeTransition(e){
+    if (e.propertyName !== 'transform') return;
+    this.classList.remove('playing');
+}
+
+const keys = document.querySelectorAll('.key');
+keys.forEach(key => key.addEventListener('transitionend', removeTransition)) 
+
+window.addEventListener('keydown', playSound);
 
 </script>
 
