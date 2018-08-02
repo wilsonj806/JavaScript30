@@ -1,3 +1,11 @@
+<!--
+02- Javascript Clock
+Version 1.0.0
+Date Started: 07-31-18
+Last Updated: 07-31-18
+-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,12 +70,37 @@
       background:black;
       position: absolute;
       top:50%;
+      transform-origin: 100%; /* set transform origin at the right side of the div */
+      transform:rotate(90deg); /* start at 12 o'clock */
+      transition: all 0.05s;
+      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58,1);
     }
 
   </style>
 
   <script>
-
+const secondHand = document.querySelector('.second-hand')
+const minuteHand = document.querySelector('.min-hand');
+const hourHand = document.querySelector('.hour-hand');
+function setDate(){ // constructor function?
+    const now = new Date(); 
+    const seconds = now.getSeconds(); // retrieves seconds
+    const minutes = now.getMinutes();
+    const hours = now.getHours();
+    const secondsDegrees = ((seconds/60)*360)+90; // add 90 degree to account for initial offset
+    const minutesDegrees = ((minutes/60)*360)+90; // same as secondsDegrees
+    const hoursDegrees = ((hours/12)*360)+90; // makes two rotations so 2h/24 = h/12
+    
+    
+    secondHand.style.transform =`rotate(${secondsDegrees}deg)`;
+    minuteHand.style.transform =`rotate(${minutesDegrees}deg)`;
+    hourHand.style.transform =`rotate(${hoursDegrees}deg)`;
+    //console.log(hours ,"hours");
+    //console.log(minutes, "minutes");
+    //console.log(hoursDegrees, "hours")
+    console.log(hourHand.style.transform);
+}
+setInterval(setDate,1000);
 
   </script>
 </body>
