@@ -2,11 +2,11 @@
 
 ## List of methods/ functions/ etc shown
 
-- .dataset
-- .sizing
-- .style
-- .setProperty
-- .value
+- `.dataset`
+- `.sizing`
+- `.style`
+- `.setProperty`
+- `.value`
 
 ## List of extra concepts introduced/ learned
 
@@ -19,7 +19,9 @@
 First we need to initialize the `const inputs` variable
 
 - it accesses the document's DOM and grabs any element that matches the class `.controls` and `input` element selector. Typed out in code it looks like:
-    - `const inputs = document.querySelectorAll('.controls input')`
+     ```javascript
+     const inputs = document.querySelectorAll('.controls input')
+     ```
 
 Then we initialize a function `function handleUpdates()` that determines what to do when an input field is updated
 
