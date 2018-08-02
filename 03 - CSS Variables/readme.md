@@ -37,3 +37,32 @@ Finally we add event listeners that look for either a change in every input's va
         inputs.forEach(input => input.addEventListener('change', handleUpdate));
         inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
     ```
+    
+## Notes
+
+- Custom data attributes can be added to your HTML elements but need to be preceded by the `data` suffix
+    - example:
+    ```html
+    <div data-name="Hello" data-time="noon"></div>
+    ```
+    - This can then be accessed in JS via the ```javascript .dataset``` property which reads the custom data attributes of an element
+    - So if we wrote some JS real fast (see test.html) to log the data attributes of the above it'd return:
+    ```
+    DOMStringMap
+    name: "Hello"
+    time: "noon"
+    __proto__: DOMStringMap
+    ```
+- You can use CSS selectors to target specific HTML elements (already kind of did this in the portfolio project)
+    - So given the following elements:
+    ```html
+    <div class="sampleClass" name="sampleName1"></div>
+    <div class="sampleClass" name="sampleName2"></div>
+    <div class="otherClass"></div>
+    ```   
+    - you can target them like so:
+    ```css
+    div{/* CSS targets every div element */}
+    div .otherClass{/* CSS only targets the div element with class of .otherClass */}
+    div[name="sampleName2"]{/* CSS only targets div eleemnt with name attribute value of "sampleName2" */}
+    ```
