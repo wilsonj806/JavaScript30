@@ -29,7 +29,7 @@ Then we initialize a function `function handleUpdates()` that determines what to
         ```javascript document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix)```
     - So we're accessing the document object, then accessing the root element of the document (here it's the HTML element), then accessing the style sheet, then finally setting the value of the CSS variable based on the element `<input name="example name">` and adding the suffix at the end so that the CSS knows what units it's working with
 
-Finally we add event listeners that look for either a change in the input's value or mouse movements on the inputs
+Finally we add event listeners that look for either a change in every input's value or mouse movements on the inputs
 
 - Looks like the following:
 
