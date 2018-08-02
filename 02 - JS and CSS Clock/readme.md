@@ -39,5 +39,5 @@ The `setDate()` function is then initialized which contains the following:
 
 The last thing to run is the `setInterval()` function
 
-    - Syntax-wise it's `setInterval(funcToRun, duration_in_milliseconds)`
-    - Here it's `setInterval(setDate, 1000)`
+- Syntax-wise it's `setInterval(funcToRun, duration_in_milliseconds)`
+- Here it's `setInterval(setDate, 1000)`
