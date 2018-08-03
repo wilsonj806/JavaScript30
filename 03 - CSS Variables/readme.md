@@ -2,11 +2,13 @@
 
 ## List of methods/ functions/ etc shown
 
-- `.dataset`
-- `.sizing`
-- `.style`
-- `.setProperty`
-- `.value`
+```javascript
+.dataset
+.sizing
+.style
+.setProperty
+.value
+```
 
 ## List of extra concepts introduced/ learned
 
@@ -26,9 +28,12 @@ First we need to initialize the `const inputs` variable
 Then we initialize a function `function handleUpdates()` that determines what to do when an input field is updated
 
 - Within the function, the variable `const suffix` is initialized to read the custom data attribute `data-sizing` and store that value **OR** leave empty if there's no value for `data-sizing`
+
 - Then we change the CSS property connected to the input that just recieved user input
     - Looks like this: 
-        ```javascript document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix)```
+        ```javascript 
+        document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix)
+        ```
     - So we're accessing the document object, then accessing the root element of the document (here it's the HTML element), then accessing the style sheet, then finally setting the value of the CSS variable based on the element `<input name="example name">` and adding the suffix at the end so that the CSS knows what units it's working with
 
 Finally we add event listeners that look for either a change in every input's value or mouse movements on the inputs
@@ -48,6 +53,7 @@ Finally we add event listeners that look for either a change in every input's va
     <div data-name="Hello" data-time="noon"></div>
     ```
     - This can then be accessed in JS via the ```javascript .dataset``` property which reads the custom data attributes of an element
+    
     - So if we wrote some JS real fast (see test.html) to log the data attributes of the above it'd return:
     ```
     DOMStringMap
@@ -56,6 +62,7 @@ Finally we add event listeners that look for either a change in every input's va
     __proto__: DOMStringMap
     ```
 - You can use CSS selectors to target specific HTML elements (already kind of did this in the portfolio project)
+
     - So given the following elements:
     ```html
     <div class="sampleClass" name="sampleName1"></div>
