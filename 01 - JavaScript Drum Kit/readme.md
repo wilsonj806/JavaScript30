@@ -88,13 +88,13 @@ window.addEventListener('keydown', playSound)
 - `document.querySelector()` returns the first descendant of the `document` element that's being invoked that matches the specified group of selectors
     - In this case `document.querySelector('audio[data-key="${e.keyCode}"])` looks for any `audio` element with a `data-key` data attribute that matches the `keyCode` value accessed via the event from `window.addEventListener('keydown',playSound)`
     - And if you put this in 
-        ```javascript 
-            console.log(document.querySelector(`div[data-key="65"]`));
-        ``` 
+    ```javascript 
+        console.log(document.querySelector(`div[data-key="65"]`));
+    ``` 
     it'd return the following:
-        ```HTML
-            <div data-key="65" class="key playing">…</div>
-        ```   
+    ```html
+        <div data-key="65" class="key playing"></div>
+    ```   
         
 - `.classList` returns a list 
     - so if you put `console.log(key.classList)` at the end of `function playsound(e){}` it spits out the following:
