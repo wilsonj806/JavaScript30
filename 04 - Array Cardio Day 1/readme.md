@@ -122,11 +122,15 @@
     console.log(reducedInit); // Should return 20
     ```
 - So, at the very start, array2.reduce() does the following if there's not initial value provided:
+    ```matlab
     accumulator = array2[i = 0] = 1
     currentVal = array2[i + 1] = 2
+    ```
 - Then when it finishes the specified operation it stores the finished operation in the accumulator and then currentVal is advanced like so:
+    ```matlab
     accumulator = previous total
     currentVal = array2[i=1+1]
+    ```
 - If you need to see that in action then check the above example code, `accumulator` is printed in the console every time it goes to the next index
 
 - Syntax for using `Array.prototype.reduce()` to count instances in an object/ array are a bit different
