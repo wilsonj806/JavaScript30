@@ -70,7 +70,7 @@
 ### Array.prototype.sort()
 
 - TL;DR the sort method sorts the elements of a given array/ object based on the user's sorting criteria and passes that into a new array/ object
-- For Array.prototype.sort() syntax is as follows for both array and object:
+- For `Array.prototype.sort()` syntax is as follows for both array and object:
     ```javascript
     const newArray = [6,3,2,4,5,1];
     const newObj = [
@@ -106,7 +106,7 @@
 ### Array.prototype.reduce()
 
 - TL;DR the reduce method takes the elements of an array and then applies a function to it to reduce it to a single value. The return value is then stored in an accumulator.
-- For Array.prototype.reduce() syntax is as follows for an array being reduced without an initial value and with one:
+- For `Array.prototype.reduce()` syntax is as follows for an array being reduced without an initial value and with one:
     ```javascript
     const array2 = [1,2,3,4,5];
     const reduced = array2.reduce(
