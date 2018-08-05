@@ -1,4 +1,4 @@
-# Notes on Project 03 Array Cardio Part 1
+# Notes on Project 04 Array Cardio Part 1
 
 ## List of Methods and Functions used
 ```javascript
