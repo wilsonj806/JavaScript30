@@ -64,7 +64,5 @@ You need two functions:
 - One toggles the `.open` class when you click on a `.panel` element
 
 - One toggles the `.open-active` class after the `.panel` element's flex animation ends
-
-    -Need to check which event it does it for though
-    
-    -Check this with the console
+    - Need to check which event it does it for though
+    - Check this with the console
