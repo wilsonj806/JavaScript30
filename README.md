@@ -14,6 +14,6 @@
 
 ## About This Project Series
 
-This project series by Wes Bos is provided as a resources for learning and applying Javascript. The challenges are pretty straight forwards, but I decided also to include notes on every project and the various concepts/ methods used to reinforce my own understanding of them.\
+This project series by Wes Bos is provided as a resources for learning and applying Javascript. The challenges are pretty straight forwards, but I decided also to include notes on every project and the various concepts/ methods used to reinforce my own understanding of them.
 
 Also note that the original Read Me file included in this repo has been renamed to `wes-readme.md`
