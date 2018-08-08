@@ -81,9 +81,9 @@ function displayMatches(){
 - Then the results of the `findMatches` function are processed again
 
 - A new variable `html` is initialized as a new array which applies the `.map()` array method on our new `matchArray` and performs the following operation on it:
-        - First the RegExp global object is reinitialized locally and takes in `this.value` and `gi` as inputs
-            - `gi` was explained in the previous subsection so lookg there
-        - Then two new variables are initialized that use the `.replace()` string method to replace the value of `regex` with a template literal string that's the following:
+    - First the RegExp global object is reinitialized locally and takes in `this.value` and `gi` as inputs
+        - `gi` was explained in the previous subsection so lookg there
+    - Then two new variables are initialized that use the `.replace()` string method to replace the value of `regex` with a template literal string that's the following:
 ```html
 <span class="hl">${cityName}</span>
 <span class="hl">${stateName}</span>
