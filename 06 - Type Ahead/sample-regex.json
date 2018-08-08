@@ -1,0 +1,17 @@
+let rule = 'allo';
+const regex1 = new RegExp(rule, 'gi');
+const regex2 = /al*o/gi;
+let string1 = "hallo mate";
+let string2 = "wallow hallo";
+let string3 = "Hey this dog is really cute and fluffy!";
+let result2 = string2.match(regex2);
+let result3 = string3.replace(/dog/,'cat');
+undefined
+result2;
+(2) ["allo", "allo"]
+    0: "allo"
+    1: "allo"
+    length: 2
+    __proto__: Array(0)
+result3;
+"Hey this cat is really cute and fluffy!"
