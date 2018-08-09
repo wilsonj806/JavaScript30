@@ -110,4 +110,4 @@ Array.prototype.splice()
 - First note that if there's no value for `endIndex` specified then slice will just continue until the last element of the array is copied
 - In the case of our `newComments` array, we first slice in the values of the `comments` array from the zeroth index to the `findIndex`-th index
     - Then we continue slicing in the rest of `comments` in after the `findIndex`-th's value
-    - **Also note, we needed to spread the values of the** `comments` **array otherwise we'd get 2 nest arrays**
+    - **Also note, we needed to spread the values of the** `comments` **array otherwise we'd get 2 nested arrays**
