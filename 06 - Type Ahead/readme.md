@@ -179,9 +179,97 @@ result3;
 ```
 - The results can be found in the `sample-regex.json` file
 
-### AJAX fetching and promises
+### AJAX fetching, promises, and JSON
 
-AJAX fetching and promises
+#### Some references:
 
-AJAX (asynchronous java and xml) [wiki article on it](https://en.wikipedia.org/wiki/Ajax_(programming))
+1. [w3 Schools](https://www.w3schools.com/js/js_ajax_intro.asp)
+2. [MDN AJAX Getting Started Reference](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started)
+3. [Wikipedia Article](https://en.wikipedia.org/wiki/Ajax_(programming))
+4. [MDN Fetch API Reference](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+5. [MDN Using Promises Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
+6. [MDN Blob Reference](https://developer.mozilla.org/en-US/docs/Web/API/Blob)
+7. [MDN JSON Guide](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON)
+
+#### Intro to AJAX
+
+So first, what is AJAX? AJAX stands for Asynchronous Java And XML and it is not a programming language but a method of requesting and retrieving data. The usual way to do it is to make a request for data and then wait as it gets downloaded to the client, but with AJAX you make a request for data, then perform other operations while the data loads in. 
+
+Normally you'd use the XMLHttpRequest object to do it, but the new `Fetch API` was introduced as part of the Javascript [living standard](https://whatwg.org/faq#living-standard) which is more powerful/ flexible.
+
+#### Notes on AJAX the Fetch method and Promises
+
+Fetch gives a generic definition for `Request` and `Response` ojbects (along with whatever else is involved in network requests)
+    - This sort of barebones/ catch-all definition means that you can use Request and Response relatively freely to build more complex backend data access tools
+- Making a Fetch request is pretty straight-forwards, you just use the `GlobalFetch.fetch()` method
+    - it's also implemented in multiple interfaces (or global objects?) such as `window` or `WorkerGlobalScope`
+    - So syntax for the fetch method is as follows:
+    ```javascript
+    const jsonLink = 'www.exmapleURL.com/hello.json'
+    fetch(jsonLink)
+    ```
+- Once a fetch method is called, a `Promise` is returned, which eventually gets resolved as a `Response` whether or not the request is fulfilled or not
+
+Now, a `promise` is an object representing the eventual completion or failure of an asynchronous request (`fetch()` for example)
+- A promise is pretty much a returned object which you attack callback functions to for when a request is completed
+    - It makes the end function significantly readable as you just have a `.then()` method with the callback functions rather than passing the callback functions directly inside the function itself
+    - Consider a function, `createAudioFileAsync()` that asynchronously generates a sound file given a certain configuration
+        - In addition 2 more callback functions are introduced, one for a failure state and one for a success state
+- Here's the function written normally:
+```javascript
+    function successCallback(result) {
+      console.log("Audio file ready at URL: " + result);
+    }
+    function failureCallback(error) {
+      console.log("Error generating audio file: " + error);
+    }
+    createAudioFileAsync(audioSettings, successCallback, failureCallback);
+
+```
+- Here's the function written with promises in mind:
+```javascript
+    createAudioFileAsync(audioSettings).then(successCallback, failureCallback);
+```
+- Which expanded looks like:
+```javascript
+    const promise = createAudioFileAsync(audioSettings); 
+    promise.then(successCallback, failureCallback);
+```
+- Using promises has a couple of advantages and they are as follows
+    - First, callbacks will never be called before the completion of current run of the Event Loop
+    - Callbacks added with `.then()` even *after* the success or failure of the asynchronous operation, will be called after the current Event Loop finishes 
+    - Multiple callbacks can be chained togather by using successive `.then()` calls
+- In addition Promises lets you do more things:
+    - Promises have a dedicated method for failure states called `.catch()`
+        - More info at the [MDN Reference for .catch()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch)
+    - you can easily chain them together
+- And below is a general workflow for how the Fetch API works
+![Image of Fetch API flow](https://mdn.mozillademos.org/files/15911/promises.png)
+
+#### Notes on the .blob() method, JSON, and related
+
+So first these are methods for processing our data now that we've actually recieved it. A lot of these methods are also going to be part of the Body mixin for the Fetch API as well. Also note that it is **highly** recommended that you complete the example in *Reference 7* at the beginning of this section if you do not know what JSON is, or if you only know how to use the Fetch API to perform AJAX operations.  
+
+What is the Body mixin in the first place? 
+    - The Body mixin of the Fetch API represents the body of the response/request, allowing you to declare what its content type is and how it should be handled.
+    - It's also a collection of various methods that are used to process the retrieved data
+
+- In our case, we're trying to parse our requested data as a JSON file so we'll need to use the `Body.json()` method to parse our JSON file (represented by the variable `endpoint`)
+```javascript
+const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+fetch(endpoint)
+.then(
+    function importer (blob) {
+    return blob.json();
+})
+```
+- The fetch method actually doesn't know what kind of data is being recieved, it's just fetching it
+    - To the browser, it's just a whole bunch of raw data that could be anything from a picture to the JSON data that we actually want
+    - You can see this if you tell the above javascript to only return the raw data, `blob` at the end of the promise
+        - It's got a ton of empty property fields because it hasn't tried reading the raw data yet
+- So we follow up on our fetch with the `Promise.prototype.then()`
+    - When our promise is fullfilled, the `.then()` function takes the raw data that we just recieved from our fetch request and parses it as a JSON object file
+    - You can see this as the end result of putting the above code into the browser console
+    - It is **highly** recommended to plug this piece of code in with the `.json()` method attached and without it to understand the concept of Fetch and Promise better
+
 
