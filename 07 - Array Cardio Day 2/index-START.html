@@ -1,3 +1,11 @@
+<!-- 
+07- Array Cardio Part 02
+Version 1.0.0
+Date Started: 08-09-18
+Last Updated: 08-09-18
+-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,16 +34,41 @@
 
     // Some and Every Checks
     // Array.prototype.some() // is at least one person 19 or older?
+    
+    const oneAdult = people.some(person =>{
+        const currentYear = (new Date()).getFullYear();
+        return (currentYear - person.year >= 19);
+    });
+    console.log('At least one adult is 19 is ', {oneAdult});
+    
     // Array.prototype.every() // is everyone 19 or older?
-
+    
+    const everyAdult = people.every(person =>{
+        const currentYear = (new Date()).getFullYear();
+        return (currentYear - person.year >= 19);
+    });      
+    console.log('Every adult is 19 is ', {everyAdult})
+    
     // Array.prototype.find()
     // Find is like filter, but instead returns just the one you are looking for
     // find the comment with the ID of 823423
-
+    const findID = comments.find(search =>search.id === 823423); // this is doing implicit returns since its a one line function. THEREFORE, THERE IS NO NEED FOR CURLY BRACKETS
+    console.log(findID);
+    
     // Array.prototype.findIndex()
     // Find the comment with this ID
     // delete the comment with the ID of 823423
 
+    const findIndex = comments.findIndex(search =>search.id === 823423);
+    console.log(findIndex);
+    // comments.splice(findIndex,1); this is one way to do it, but some people prefer making a copy of the array without the desired index value. We're doing the latter
+    const newComments =[
+        ...comments.slice(0,findIndex),
+        ...comments.slice(findIndex+1)
+    ];
+    console.table(comments);
+    
+    console.table(newComments);
   </script>
 </body>
 </html>
