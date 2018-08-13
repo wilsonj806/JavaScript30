@@ -1,3 +1,11 @@
+<!-- 
+08- Array Cardio Part 02
+Version 1.0.0
+Date Started: 08-11-18
+Last Updated: 08-11-18
+-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +15,65 @@
 <body>
 <canvas id="draw" width="800" height="800"></canvas>
 <script>
+
+const canvas = document.querySelector('#draw'); 
+// you draw on something called a context, not the actual element
+
+const ctx = canvas.getContext('2d'); 
+canvas.width = window.innerWidth; //set height and width = to inside window
+canvas.height = window.innerHeight;
+
+ctx.strokeStyle = '#BADA55';
+ctx.lineJoin = 'round'; // joint between lines rounded
+ctx.lineCap = 'round'; // ends of lines rounded
+ctx.lineWidth = 100;
+//ctx.globalCompositeOperation = 'source-out'; // lets you blend stuff but is neato
+
+let isDrawing = false; // it's a toggle for the mouse click/ hold state
+let lastX = 0;
+let lastY = 0; // tracking mouse position it's probably gonna update
+let hue = 0;
+let direction = true;
+
+function draw(e){ // click and drag functionality
+    if(!isDrawing){
+    return;
+    }
+    console.log(e);
+    ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+    ctx.beginPath();
+    // start position
+    ctx.moveTo(lastX,lastY);
+    // end position
+    ctx.lineTo(e.offsetX,e.offsetY); // it's from the Mouse Event value in console
+    ctx.stroke();
+    [lastX, lastY] = [e.offsetX, e.offsetY]; //destructuring
+    hue++; // change hue as you mousedown
+    if(hue >= 360){
+        hue = 0;
+    }
+    if(ctx.lineWidth >= 100 || ctx.lineWidth <= 1){
+    // direction in this case is the direction that the line width is going (getting wider vs getting smaller)
+    direction = !direction;
+    }
+    if(direction){
+        ctx.lineWidth++;
+    } else{
+        ctx.lineWidth--;
+    }
+    
+}
+
+canvas.addEventListener('mousedown', (e) => {
+isDrawing = true;
+// update current mousedown position
+[lastX, lastY] = [e.offsetX, e.offsetY];
+});
+
+
+canvas.addEventListener('mousemove',draw);
+canvas.addEventListener('mouseup', () => isDrawing = false);
+canvas.addEventListener('mouseout', () => isDrawing = false); // mouse is off the window
 </script>
 
 <style>
