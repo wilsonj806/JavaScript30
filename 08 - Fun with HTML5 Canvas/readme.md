@@ -26,7 +26,7 @@ event.offsetY
 
 - Mouse position tracking
 - Tracking and attaching numerical values to DOM elements (kinda)
-- Javascript `canvas.getContext()` and HTML `<canvas>`
+- Javascript `canvas.getContext()` and HTML `<canvas>` ([MDN reference on it](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D))
 - Intermediate variables for more functionality when you're using event listeners
 
 ## Logic/ architecture
