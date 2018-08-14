@@ -1,3 +1,11 @@
+<!-- 
+09- Dev Tools Domination
+Version 1.0.0
+Date Started: 08-14-18
+Last Updated: 08-14-18
+-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +14,8 @@
 </head>
 <body>
 
-  <p onClick="makeGreen()">×BREAK×DOWN×</p>
-
+  <p onClick="makeGreen()">×BREAK×DOWN×</p> <!-- look up the onclick attritube -->
+<!-- Also you can add breakpoints for JS running things via the "Break On" option when you right click an element -->
   <script>
     const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
 
@@ -18,29 +26,66 @@
     }
 
     // Regular
-
-    // Interpolated
-
-    // Styled
-
+      console.log('hello');
+      
+    // Interpolated // longer strings in other words
+      console.log('Hello I am a %s string!' , '+smile');
+      
+    // Styled // like it's CSS
+      console.log('%c I am some great text', 'font-size:24px; background-color:pink;');
+      
     // warning!
-
+      console.warn('WARNING UNAUTHORIZED ACCESS'); // gives you a trace to the line of JS where the console is called
+      
     // Error :|
-
+      console.error('stuff\'s broken');
+      
     // Info
-
+      console.info('Here\'s information');
+      
     // Testing
-
+    const p = document.querySelector('p');
+      console.assert(p.classList.contains('ouch'),'That is wrong!'); // first parameter determines what needs to be checked, second is the error message
+      
     // clearing
-
+      console.clear();
+      
     // Viewing DOM Elements
+      console.dir(p)
+      
+    // Grouping together // handy way of grouping similar statements together in one line on the console
+      dogs.forEach(dog =>{
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.groupEnd(`${dog.name}`);
+      })
 
-    // Grouping together
 
     // counting
-
-    // timing
-
+      console.count('Wes');
+      console.count('Wes');
+      console.count('Wes');
+      console.count('Wes');
+      console.count('Wes');
+      
+      console.count('Carl');
+      console.count('Carl');
+      console.count('Carl');
+      console.count('Carl');
+      console.count('Carl');
+      console.count('Carl');
+      
+      // timing
+      console.time('fetching data');
+      fetch('https://api.github.com/users/wesbos').then(data=> data.json()).then(data=>{console.timeEnd('fetching data');console.log(data);});
+      
+      // table!
+      console.table(dogs);
+      
+      console.log(p);
+      console.dir(p);
   </script>
 </body>
 </html>
