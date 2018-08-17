@@ -106,7 +106,7 @@ The logic for this is similar to Wes's solution, but involved the following:
 - When that happens, I would have gotten the index of the checkbox that just got clicked and then add a while loop that goes through the array and sets the state of `DOMElement.checked` to true
 
 This solution has several problems and they are as follows:
-1. Ignoring everything else, this is kind of aggresively complex and hard to follow
-2. It would probably only work in one direction
-3. In general there are significantly simpler ways to track the state of a DOM element
+    1. Ignoring everything else, this is kind of aggresively complex and hard to follow
+    2. It would probably only work in one direction
+    3. In general there are significantly simpler ways to track the state of a DOM element
 
