@@ -61,7 +61,7 @@ Notes and details as follows
 - All the conditional statements are simple enough that they can be shortened down to one line via the ternary operator
     - Do note that the expanded version of the conditional statements have been included anyways, it's just commented out
 - The video progress bar update function and the scrub video function do two entirely seperate things and thus cannot be clumped into one function
-    - **I.E Visually tracking video progress, and skipping to any point in the video via an interface item should not be clumped into the same function. It's probably/ is definitely a bad coding practice **
+    - **I.E Visually tracking video progress via a UI element, and skipping to any point in the video via a UI element should not be clumped into the same function. It's probably/ is definitely a bad coding practice**
 - **IMPORTANT** The Fullscreen API isn't fully supported/ standardized between browsers, so code will need to be changed or updated for compatability **AND** in future updates of the API
     - E.G Chrome and Mozilla use vendor prefixes with the Fullscreen API properties and methods
 
