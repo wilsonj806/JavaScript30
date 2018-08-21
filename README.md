@@ -20,6 +20,8 @@
 
 [Project 10 - Hold Shift To Check Multiple Checkboxes](https://github.com/wilsonj806/JavaScript30/tree/master/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes)
 
+[Project 11 - Custom HTML5 Video Player](https://github.com/wilsonj806/JavaScript30/tree/master/11%20-%20Custom%20Video%20Player)
+
 ## About This Project Series
 
 This project series by Wes Bos is provided as a resources for learning and applying Javascript. The challenges are pretty straight forwards, but I decided also to include notes on every project and the various concepts/ methods used to reinforce my own understanding of them.
