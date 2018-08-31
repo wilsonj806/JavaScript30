@@ -1,3 +1,10 @@
+<!-- 
+12- Key Sequence Check
+Version 1.0.0
+Date Started: 08-28-18
+Last Updated: 08-28-18
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +14,21 @@
 </head>
 <body>
 <script>
+  const pressed = [];
+  const secretCode ='wesbos';
+  
+  // limit size of array to 6 characters
+  // splice array from the end of the array (so here it's start at -(6-1) => secretCode[5])
+    // then the splice looks for how many elements to remove, so here it's (n-6) elements
+  // Array.prototype.join() is a method that lets you make a string out of the elements of an array  
+  window.addEventListener('keyup',(e) =>{
+    pressed.push(e.key);
+    pressed.splice(-secretCode.length -1, pressed.length-secretCode.length);
+    if (pressed.join('').includes(secretCode)){
+      console.log('Ding Ding!');
+      cornify_add();
+    }
+  })
 </script>
 </body>
 </html>
