@@ -1,3 +1,10 @@
+<!-- 
+13- Slide In Scroll
+Version 1.0.0
+Date Started: 08-28-18
+Last Updated: 08-31-18
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,6 +50,9 @@
   </div>
 
   <script>
+    const sliderImages = document.querySelectorAll('img.slide-in');
+
+    // the debounce function limits the amount of event listener callbacks are made
     function debounce(func, wait = 20, immediate = true) {
       var timeout;
       return function() {
@@ -51,12 +61,39 @@
           timeout = null;
           if (!immediate) func.apply(context, args);
         };
+
         var callNow = immediate && !timeout;
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
         if (callNow) func.apply(context, args);
       };
     }
+    
+    function checkSlide(){
+      sliderImages.forEach(sliderImage => {
+        // need to figure out when to slide the image in (we want it to translate in at 50% visible)
+        // need to figure out how far from the bottom as well so window.innerHeight is added
+        // need to also subtract image height divided by two
+        // Make some diagrams to illustrate the window properties
+        
+        const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height/2;
+        // offsetTop is image level from the top of the page is
+        const imageBottom = sliderImage.offsetTop + sliderImage.height;
+        
+        // figure out image visibility
+        const isHalfShown = slideInAt > sliderImage.offsetTop;
+        const isNotScrolledPast = window.scrollY < imageBottom;
+
+        if (isHalfShown && isNotScrolledPast){
+          sliderImage.classList.add('active');
+        }
+        else{
+          sliderImage.classList.remove('active');
+        }
+      })
+    }
+    
+    window.addEventListener('scroll',debounce(checkSlide));
 
   </script>
 
