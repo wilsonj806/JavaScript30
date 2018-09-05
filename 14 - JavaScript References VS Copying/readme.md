@@ -43,7 +43,7 @@ Let's say we try to update an index in team and seem what happens to both
     console.table(players);
   ```
 The console prints out the following:
-![img](example.png)
+![img](example.PNG)
 
 We were expecting it to update the `team` array, not the `players` array.
   - What happened was that, since we've set `team` as a reference to `players`, when we update the `team` array, it tells it to update `players` instead as `team` doesn't have any actual value
