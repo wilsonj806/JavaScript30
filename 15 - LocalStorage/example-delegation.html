@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Example Event Delegation</title>
+  <style>
+    ul{
+      background-color:chocolate;
+      color:white;
+    }
+    li{
+      background-color:darkolivegreen;
+    }
+  </style>
+
+</head>
+<body>
+    <ul class="plates">
+        <li>
+          <input type="checkbox" data-index=1 id="item1">
+          <label for="item1">Fish</label>
+        </li>
+        <li>
+          I'm not the target hahahahaha
+        </li>
+        <li>
+          <input type="checkbox" data-index=2 id="item2">
+          <label for="item2">Squid</label>
+        </li>
+    </ul>
+    
+    <script>
+    const itemList = document.querySelector('.plates');
+    const listEles = document.querySelectorAll('li');
+    function checkEvent(e){
+      if (!e.target.dataset.index){
+        return;
+      };
+      console.log(`Hello, I have selected ${e.target.id}`);
+    }
+    
+    itemList.addEventListener('click',(e)=>{
+      console.log('I am the ul element being triggered');
+      checkEvent(e);
+    });
+    listEles.forEach((listEle)=>
+      listEle.addEventListener('click',(e)=>{
+      console.log('I am the li element being triggered');
+    }));
+    
+    </script>
+</body>
+</html>
