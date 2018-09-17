@@ -1,3 +1,9 @@
+<!-- 
+16 - Mouse Move Shadow
+Date Started: 09-11-18
+Last Updated: 09-11-18
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,6 +41,33 @@
   </style>
 
 <script>
+  const hero = document.querySelector('.hero');
+  const text = hero.querySelector('h1');
+  const walk = 100; // or 100px
+
+  function shadow(e){
+    // use destructuring for a quick object get
+    const {offsetWidth: width, offsetHeight:height} = hero;
+    let {offsetX: x, offsetY: y} = e;
+    // if we're mousing over a child element when we're listening to the parent element, it gives the offset of the child
+    if (this !== e.target){
+      x = x + e.target.offsetLeft;
+      y = y + e.target.OffsetTop;
+    }
+    //console.log(x);
+    // (x / width) gives a percent of the width and likewise for (y/ height)
+    const xWalk = Math.round((x / width * walk) - (walk/2)); // range is 100px, max = 50px, min = -50px
+    const yWalk = Math.round((y / width * walk) - (walk/2));
+    
+    text.style.textShadow = `
+    ${xWalk}px ${yWalk}px 0 rgba(255,0,0,0.7),
+    ${xWalk * -1}px ${yWalk}px 0 rgba(0,255,0,.7),
+    ${xWalk}px ${yWalk * -1}px 0 rgba(0,0,255,0.7)
+    `;
+
+  }
+
+  hero.addEventListener('mousemove',shadow);
 </script>
 </body>
 </html>
