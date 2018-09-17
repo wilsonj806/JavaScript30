@@ -1,3 +1,9 @@
+<!-- 
+17 - Sort Without Articles
+Date Started: 09-13-18
+Last Updated: 09-13-18
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +51,20 @@
 
 <script>
 const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+const itemsList = document.querySelector('ul#bands');
 
+
+function stripList(bandName){
+  return bandName.replace(/^(the |a |an )/i, '').trim(); 
+}
+
+const sortedBands = bands.sort((a,b)=> (stripList(a) > stripList(b)) ? 1: -1);
+
+itemsList.innerHTML = sortedBands.map((band)=>{
+  return`
+  <li>${band}</li>
+  `
+}).join('');
 
 </script>
 
