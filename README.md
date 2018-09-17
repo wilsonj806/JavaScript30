@@ -18,4 +18,10 @@ Also note that the original Read Me file included in this repo has been renamed 
 - [Project 09 - Dev Tool Domination](https://github.com/wilsonj806/JavaScript30/tree/master/09%20-%20Dev%20Tools%20Domination)
 - [Project 10 - Hold Shift To Check Multiple Checkboxes](https://github.com/wilsonj806/JavaScript30/tree/master/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes)
 - [Project 11 - Custom HTML5 Video Player](https://github.com/wilsonj806/JavaScript30/tree/master/11%20-%20Custom%20Video%20Player)
-
+- [Project 12 - Key Sequence Detection](https://github.com/wilsonj806/JavaScript30/tree/master/12%20-%20Key%20Sequence%20Detection)
+- [Project 13 - Slide On Scroll](https://github.com/wilsonj806/JavaScript30/tree/master/13%20-%20Slide%20in%20on%20Scroll)
+- [Project 14 - JavaScript Referencing Vs Copying](https://github.com/wilsonj806/JavaScript30/tree/master/14%20-%20JavaScript%20References%20VS%20Copying)
+- [Project 15 - Local Storage](https://github.com/wilsonj806/JavaScript30/tree/master/15%20-%20LocalStorage)
+- [Project 16 - Mouse Move Shadow](https://github.com/wilsonj806/JavaScript30/tree/master/16%20-%20Mouse%20Move%20Shadow)
+- [Project 17 - Sort Without Articles](https://github.com/wilsonj806/JavaScript30/tree/master/17%20-%20Sort%20Without%20Articles)
+- [Project 18 - Adding Times Up With Reduce](https://github.com/wilsonj806/JavaScript30/tree/master/18%20-%20Adding%20Up%20Times%20with%20Reduce)
