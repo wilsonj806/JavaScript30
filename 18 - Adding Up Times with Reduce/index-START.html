@@ -1,3 +1,9 @@
+<!-- 
+18 - Adding Up Times With Reduce
+Date Started: 09-13-18
+Last Updated: 09-13-18
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -182,6 +188,23 @@
     </li>
   </ul>
 <script>
+// Array.map doesn't work on NodeList objects
+const listTime = Array.from(document.querySelectorAll('[data-time]'));
+
+// array.forEach() is actually slower than array.map()
+const seconds = listTime.map(video=>video.dataset.time).map(entry=>{
+  const [min, s] = entry.split(':').map(parseFloat);
+  return (min * 60) + s;
+}).reduce((total,current)=> total + current);
+
+let secondsLeft = seconds;
+const hours = Math.floor(secondsLeft / 3600);
+secondsLeft = secondsLeft % 3600;
+
+const minutes = Math.floor(secondsLeft % 60);
+secondsLeft = secondsLeft % 60
+
+console.log(`Total of ${hours} hours, ${minutes} minutes, and ${secondsLeft} of video`);
 </script>
 </body>
 </html>
