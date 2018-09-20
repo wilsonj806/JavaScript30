@@ -38,7 +38,7 @@ JSON.parse()
 - [MDN Event Bubbling And Capture](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#Event_bubbling_and_capture)
 - [MDN <input type ="submit"](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/submit)
 - [MDN DOMTokenList.value reference](https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList/value)
--[MDN Element.matches()](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches)
+- [MDN Element.matches()](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches)
 
 ### Local Storage
 
